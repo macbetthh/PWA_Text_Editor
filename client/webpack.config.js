@@ -50,6 +50,15 @@ module.exports = (env, argv) => {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
+    devServer: {
+      static: {
+        directory: path.resolve(__dirname, 'dist'),
+      },
+      port: 3000,
+      open: true,
+      liveReload: false,
+      hot: false,
+    },
     plugins,
     module: {
       rules: [

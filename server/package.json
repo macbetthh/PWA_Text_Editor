@@ -1,21 +1,17 @@
 {
-    "name": "jate",
+    "name": "jate-server",
     "version": "1.0.0",
-    "description": "",
     "main": "server.js",
     "scripts": {
-        "server": "nodemon server.js --ignore client",
-        "build": "webpack --mode production"
+      "start": "node server.js",
+      "start:dev": "nodemon server.js"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
     "dependencies": {
-        "express": "^4.17.1"
+      "express": "^4.17.1",
+      "if-env": "^1.0.4"
     },
     "devDependencies": {
-        "nodemon": "^2.0.4",
-        "webpack": "^5.51.1",
-        "webpack-cli": "^4.8.0"
+      "nodemon": "^2.0.4"
     }
-}
+  }
+  
