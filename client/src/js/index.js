@@ -1,6 +1,6 @@
 import { Workbox } from 'workbox-window';
 import Editor from './editor';
-import { getDb, putDb } from './database';
+import { getDb, putDb } from './database'; // Import getDb and putDb
 import '../css/style.css';
 
 const main = document.querySelector('#main');
@@ -26,23 +26,25 @@ if (typeof editor === 'undefined') {
   window.addEventListener('load', async () => {
     const data = await getDb();
     if (data.length > 0) {
-      editor.setValue(data[0].value); // Assuming editor has a setValue method
+      editor.setValue(data[0].content);
     }
 
     // Save data to IndexedDB on input
-    editor.on('change', async (content) => {
+    editor.on('change', async () => {
+      const content = editor.editor.getValue();
       await putDb(content);
     });
   });
 }
 
-// Register service worker using Workbox
+// Re-enable service worker registration
 if ('serviceWorker' in navigator) {
-  const wb = new Workbox('/service-worker.js');
-  wb.register()
-    .then(registration => {
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }).catch(error => {
-      console.log('ServiceWorker registration failed: ', error);
-    });
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(registration => {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }).catch(error => {
+        console.log('ServiceWorker registration failed: ', error);
+      });
+  });
 }
