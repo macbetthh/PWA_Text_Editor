@@ -7,9 +7,7 @@
     "start:dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "node server/server.js",
     "server": "nodemon server/server.js --ignore client",
-    "build": "npm run build --prefix client",
-    "install": "cd client && npm install",
-    "client": "cd client && npm start"
+    "build": "npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +19,6 @@
   "devDependencies": {
     "concurrently": "^5.2.0",
     "nodemon": "^2.0.4",
-    "webpack": "^5.93.0",
     "webpack-cli": "^5.1.4"
   }
 }
