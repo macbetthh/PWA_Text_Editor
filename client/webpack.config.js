@@ -28,7 +28,7 @@ module.exports = (env, argv) => {
           destination: path.join('assets', 'icons'),
         },
       ],
-    })
+    }),
   ];
 
   if (isProduction) {
@@ -44,7 +44,7 @@ module.exports = (env, argv) => {
     mode: isProduction ? 'production' : 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js',
+      install: './src/js/install.js'
     },
     output: {
       filename: '[name].bundle.js',
@@ -54,7 +54,7 @@ module.exports = (env, argv) => {
       static: {
         directory: path.resolve(__dirname, 'dist'),
       },
-      port: 8080, 
+      port: 3000,
       open: true,
     },
     plugins,

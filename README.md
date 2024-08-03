@@ -13,6 +13,7 @@ Service Worker: Caches assets and ensures offline functionality.
 
 ## Deployed App 
 
+[Click here for deployed page](https://pwa-text-editor-rbak.onrender.com)
 
 ## Installation
 ### Local Development
